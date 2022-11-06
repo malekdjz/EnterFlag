@@ -65,7 +65,7 @@ class Team (models.Model):
 
 
 class Participant(models.Model):
-    user = models.ForeignKey(User,on_delete = models.CASCADE)
+    user = models.OneToOneField(User,on_delete = models.CASCADE)
     score = models.IntegerField()
     is_team_owner = models.BooleanField()
     team = models.ForeignKey(Team,blank=True,null=True,on_delete= models.PROTECT)
