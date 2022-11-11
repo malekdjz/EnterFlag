@@ -36,7 +36,7 @@ class Category(models.Model):
         ordering = ['name']
 
 class Challange(models.Model):
-    name = models.CharField(max_length = 20)
+    name = models.CharField(max_length = 20,unique=True)
     difficulty = models.CharField(max_length = 20)
     description = models.TextField(blank=True,null=True)
     link = models.URLField()
@@ -52,21 +52,20 @@ class Challange(models.Model):
         ordering = ['points','name']
 
 class Team (models.Model):
-    name = models.CharField(max_length = 20)
-    solved = models.ManyToManyField(Challange)
-    score = models.IntegerField()
+    name = models.CharField(max_length = 20,unique=True)
 
     def __str__(self) -> str:
             return self.name
 
     class Meta:
-        ordering = ['score','name']
+        ordering = ['name']
         
 
 
 class Participant(models.Model):
     user = models.OneToOneField(User,on_delete = models.CASCADE)
     score = models.IntegerField()
+    solved = models.ManyToManyField(Challange)
     is_team_owner = models.BooleanField()
     team = models.ForeignKey(Team,blank=True,null=True,on_delete= models.PROTECT)
 
@@ -74,7 +73,7 @@ class Participant(models.Model):
         return self.username
 
     class Meta:
-        ordering = ['username']
+        ordering = ['score','user']
 
         
 
