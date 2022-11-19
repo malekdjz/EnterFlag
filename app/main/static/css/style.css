@@ -1,0 +1,36 @@
+@font-face {
+  font-family: mainFont;
+  src: url(../font/Electrolize-Regular.ttf);
+}
+
+body{
+    font-family: mainFont;
+    padding: 0;
+    margin: 0;
+}
+
+/* nav bar starts */
+
+
+
+.logo{
+  max-width: 10vh;
+}
+
+.navbar-toggler-icon{
+  color: white;
+}
+
+.navbar{
+  background-color: black;
+}
+
+.nav-link{
+  color: white;
+}
+
+.nav-link:hover{
+  color: green;
+}
+  /* nav bar ends */
+  
