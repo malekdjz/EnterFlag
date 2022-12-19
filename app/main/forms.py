@@ -11,19 +11,22 @@ class RegisterForm(forms.Form):
     confirm_password = forms.CharField(label='Confirm Password',widget=forms.PasswordInput)
     Email = forms.EmailField(required=True)
 
+class ConfirmEmailForm(forms.Form):
+    code = forms.CharField(required=True)
+
 class TeamForm(forms.Form):
     name = forms.CharField(label='Name',max_length=20,required=True)
 
-class InviteForm(forms.Form):
+class InviteTeammateForm(forms.Form):
     username = forms.CharField(label='username',max_length=150,required=True)
 
-class KickForm(forms.Form):
+class KickTeammateForm(forms.Form):
     member = forms.ChoiceField(required=True)
 
 class TransferOwnershipForm(forms.Form):
     member = forms.ChoiceField(required=True)
     
-class SubmitForm(forms.Form):
+class SubmitChallangeForm(forms.Form):
     flag = forms.CharField(label='Flag',max_length=50,required=True)
 
 class ChallangeForm(forms.Form):
@@ -35,6 +38,8 @@ class ChallangeForm(forms.Form):
     points = forms.IntegerField(required=True)
     flag = forms.CharField(label='Flag',required=True,max_length=50)
     event = forms.ChoiceField(label='Event',required=True)
+
+
 
 
 
